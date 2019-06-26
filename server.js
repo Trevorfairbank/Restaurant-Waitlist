@@ -76,27 +76,13 @@ app.post("/api/tables", (req, res) => {
 
     if (rTables.length < 5) {
         rTables.push(newTable);
+        res.json(true);
     }
     else {
         rWaitlist.push(newTable);
+        res.json(false);
     }
-    res.json(newTable);
 })
-
-app.post("/api/reserves", (req, res) => {
-    var newTable = req.body;
-
-    console.log(newTable);
-
-    if (rTables.length < 5) {
-        rTables.push(newTable);
-    }
-    else {
-        rWaitlist.push(newTable);
-    }
-    res.json(newTable);
-})
-
 
 
 app.listen(PORT, () => {
